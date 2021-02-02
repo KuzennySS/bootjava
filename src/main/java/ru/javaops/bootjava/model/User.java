@@ -1,8 +1,6 @@
 package ru.javaops.bootjava.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,7 +14,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class User {
+@ToString(callSuper = true, exclude = {"password"})
+public class User extends BaseEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
